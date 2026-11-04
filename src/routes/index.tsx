@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
 import CustomerCreation from '../pages/CustomerCreation'
 import CustomerListing from '../pages/CustomerListing'
-import Home from '../pages/Home'
+// import Home from '../pages/Home'
 import InvoiceCreation from '../pages/InvoiceCreation'
 import InvoiceListing from '../pages/InvoiceListing'
 
@@ -11,7 +11,9 @@ export function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Navigate to="/customers" replace />} />
+
           <Route path="/customers" element={<CustomerListing />} />
           <Route path="/customers/new" element={<CustomerCreation />} />
           <Route
